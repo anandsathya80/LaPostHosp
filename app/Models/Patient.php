@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Concerns\HasUlids;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -22,4 +21,14 @@ class Patient extends Model
         'date_of_birth',
         'medicine_allergy_id',
     ];
+
+    public function sex()
+    {
+        return $this->belongsTo(Sex::class, 'sex_id');
+    }
+
+    public function medicineAllergies()
+    {
+        return $this->belongsTo(MedicineAllergy::class, 'medicine_allergy_id');
+    }
 }

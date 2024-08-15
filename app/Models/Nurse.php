@@ -20,4 +20,14 @@ class Nurse extends Model
         'division_id',
         'sex_id',
     ];
+
+    public function sex()
+    {
+        return $this->belongsTo(Sex::class, 'sex_id');
+    }
+
+    public function division()
+    {
+        return $this->belongsTo(Division::class, 'division_id');
+    }
 }
