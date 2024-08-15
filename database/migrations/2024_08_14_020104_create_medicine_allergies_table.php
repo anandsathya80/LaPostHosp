@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('medicine_allergies', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->uuid('medicine_allergy_id');
+            $table->foreignUuid('patient_id')->references('id')->on('patients')->onDelete('cascade');
             $table->timestamps();
         });
     }

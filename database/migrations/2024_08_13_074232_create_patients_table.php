@@ -17,11 +17,10 @@ return new class extends Migration
             $table->string('identity_number');
             $table->string('phone_number');
             $table->string('address');
-            $table->foreign('sex_id')->references('id')->on('sexs')->onDelete('cascade');
-            $table->foreign('blood_type_id')->references('id')->on('blodd_types')->onDelete('cascade');
+            $table->foreignUuid('sex_id')->references('id')->on('sexs')->onDelete('cascade');
+            $table->foreignUuid('blood_type_id')->references('id')->on('blood_types')->onDelete('cascade');
             $table->string('place_of_birth');
             $table->string('date_of_birth');
-            $table->foreign('medicine_allergy_id')->references('medicinde_allergy_id')->on('medicine_allergies')->onDelete('cascade');
             $table->timestamps();
         });
     }

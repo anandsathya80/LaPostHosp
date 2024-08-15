@@ -17,9 +17,9 @@ return new class extends Migration
             $table->string('phone');
             $table->string('address');
             $table->string('email');
-            $table->foreign('sex_id')->references('id')->on('sexs')->onDelete('cascade');
-            $table->foreign('division_id')->references('id')->on('divisions')->onDelete('cascade');
-            $table->foreign('doctor_type_id')->references('id')->on('doctor_types')->onDelete('cascade');
+            $table->foreignUuid('sex_id')->references('id')->on('sexs')->onDelete('cascade');
+            $table->foreignUuid('division_id')->references('id')->on('divisions')->onDelete('cascade');
+            $table->foreignUuid('doctor_type_id')->references('id')->on('doctor_types')->onDelete('cascade');
             $table->timestamps();
         });
     }
