@@ -12,9 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('reservations', function (Blueprint $table) {
-            $table->uuidid('id')->primaty;
-            $table->foreignId('patient_id')->references('id')->on('patients')->onDelete('cascade');
-            $table->foreignId('scedule_id')->references('id')->on('schedules')->onDelete('cascade');
+            $table->uuid('id')->primary();
+            $table->foreignUuid('schedule_id')->references('id')->on('schedules')->onDelete('cascade');
+            $table->foreignUuid('patient_id')->references('id')->on('patients')->onDelete('cascade');
             $table->timestamps();
         });
     }
