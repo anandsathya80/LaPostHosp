@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('schedules', function (Blueprint $table) {
-            $table->uuidid('id')->primaty;
-            $table->foreignId('doctor_id')->references('id')->on('doctors')->onDelete('cascade');
+            $table->uuid('id')->primary();
+            $table->foreignUuid('doctor_id')->references('id')->on('doctors')->onDelete('cascade');
             $table->string('day');
             $table->time('start_at');
             $table->time('end_at');
