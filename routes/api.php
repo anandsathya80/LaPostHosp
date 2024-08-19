@@ -4,6 +4,7 @@ use App\Http\Controllers\divisions\DivisionController;
 use App\Http\Controllers\doctors\DoctorController;
 use App\Http\Controllers\nurses\NurseController;
 use App\Http\Controllers\patients\PatientController;
+use App\Http\Controllers\schedule\ScheduleController;
 use App\Http\Controllers\static_type\BloodTypeController;
 use App\Http\Controllers\static_type\SexController;
 use Illuminate\Http\Request;
@@ -56,3 +57,7 @@ Route::post('/storeBloodTypes', [BloodTypeController::class, 'store']);
 Route::get('/patients', [PatientController::class, 'index']);
 Route::post('/storePatients', [PatientController::class, 'store']);
 // patients
+
+// schedules
+Route::get('/schedules', [ScheduleController::class, 'index']);
+// schedules
