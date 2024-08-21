@@ -31,7 +31,11 @@ class MedicalCheckController extends Controller
     public function store(Request $request)
     {
         $medicalCheck = MedicalCheck::create([
-            
+            'reservataion_id' => $request->input('reservation_id'),
+            'problem' => $request->input('problem'),
+            'diagnose' => $request->input('diagnose'),
+            'diagnoses_result' => $request->input('diagnoses_result'),
+            'notes' => $request->input('notes'),
         ]);
 
         return response()->json($medicalCheck, 'created successfully');
