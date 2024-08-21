@@ -4,6 +4,7 @@ namespace App\Http\Controllers\doctors;
 
 use App\Http\Controllers\Controller;
 use App\Models\Doctor;
+use App\Models\Schedule;
 use Illuminate\Http\Request;
 
 class DoctorController extends Controller
@@ -24,6 +25,14 @@ class DoctorController extends Controller
     {
         //
     }
+
+    // doctor's schedule
+    public function doctorSchedules(string $id)
+    {
+        $doctorSchedule = Schedule::where('doctor_id', '=', $id);
+        return response()->json($doctorSchedule);
+    }
+    // doctor's schedule
 
     /**
      * Store a newly created resource in storage.
