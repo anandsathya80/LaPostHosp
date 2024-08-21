@@ -30,7 +30,15 @@ class ScheduleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $schedule = Schedule::create([
+            'doctor_id' => $request->input('doctor_id'),
+            'day' => $request->input('day'),
+            'start_at' => $request->input('start_at'),
+            'end_at' => $request->input('end_at'),
+
+        ]);
+        return response()->json($schedule, 'created successfully');
     }
 
     /**
