@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\medical_check;
 
 use App\Http\Controllers\Controller;
+use App\Models\Reservation;
 use Illuminate\Http\Request;
+use Symfony\Component\Console\Input\Input;
 
 class ReservationController extends Controller
 {
@@ -12,7 +14,8 @@ class ReservationController extends Controller
      */
     public function index()
     {
-        //
+        $reservation = Reservation::all();
+        return response()->json($reservation);
     }
 
     /**
@@ -28,7 +31,11 @@ class ReservationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $reservation = Reservation::create([
+            'schedule_id' => $request->input('schedule_id'),
+            'patient_id' => $request->input('patient_id'),
+        ]);
+        return response()->json($reservation, 'cretaed successfully');
     }
 
     /**
