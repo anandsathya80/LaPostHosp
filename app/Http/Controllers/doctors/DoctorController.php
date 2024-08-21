@@ -4,6 +4,7 @@ namespace App\Http\Controllers\doctors;
 
 use App\Http\Controllers\Controller;
 use App\Models\Doctor;
+use App\Models\Reservation;
 use App\Models\Schedule;
 use Illuminate\Http\Request;
 
@@ -33,6 +34,16 @@ class DoctorController extends Controller
         return response()->json($doctorSchedule);
     }
     // doctor's schedule
+
+    // doctor's reservation
+    public function doctorReservations(string $id)
+    {
+        $doctorReservation = Reservation::leftjoin('schedules', 'reservations.id', '=', 'schedules.id')
+            ->where('schedule.doctor_id', '=', $id)
+            ->get();
+        return response()->json($doctorReservation);
+    }
+    // doctor's reservation
 
     /**
      * Store a newly created resource in storage.
